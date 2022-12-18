@@ -55,17 +55,17 @@ public static void main(String[] args) {
                 edad = entrada.nextInt();
                 //Compruebo que la edad sea mayor o igual a 65 para aplicar el descuento
                 if(edad >= 65){
-                    preciomayor = (Double) preciomayor + (35 * 0.9);
+                    preciomayor = (Double) preciomayor + (32 * 0.9);
                 //Compruebo que la edad sea mayor o igual a 12 y menor o igual a 15 para aplicar el descuento
                 }else if(edad >= 12 && edad <= 15){
-                    precioadoles = (Double) precioadoles + (35 * 0.92);
+                    precioadoles = (Double) precioadoles + (32 * 0.92);
                 //Compruebo que la edad sea mayor o igual a 4 y menor o igual a 11 para aplicar el descuento
                 }else if(edad >= 4 && edad <= 11){
-                    precionino = (Double) precionino + (35 * 0.65);
+                    precionino = (Double) precionino + (32 * 0.65);
                 //Si no ha sido ninguna de las opciones anteriores compruebo si la edad esta entre 15 y 65
                 //Ya que los menores de 4 no pagan el billete
                 }else if(edad > 15 && edad < 65){
-                    precionormal = (Double) precionormal + 35;
+                    precionormal = (Double) precionormal + 32;
                 }
             }
             //Calculo el precio total
