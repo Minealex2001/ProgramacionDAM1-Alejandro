@@ -3,10 +3,10 @@ import java.util.Scanner;
 public class Ejercicio9 {
     public static void main(String[] args) {
 
-        Scanner leer = new Scanner(System.in);
+        Scanner entrada = new Scanner(System.in);
         int array100Num[]=new int[100], numUsuario, posicion=0;
         System.out.print("Introduce un número: ");
-        numUsuario = leer.nextInt();
+        numUsuario = entrada.nextInt();
         for (int i = 0; i < array100Num.length; i++) {
             array100Num[i]= (int) (Math.random()*(10-1)+1);
         }
@@ -16,6 +16,6 @@ public class Ejercicio9 {
                 System.out.println("El valor "+numUsuario+" esta en la posicion "+posicion);
             }
         }
-    leer.close();
+    entrada.close();
     }
 }
