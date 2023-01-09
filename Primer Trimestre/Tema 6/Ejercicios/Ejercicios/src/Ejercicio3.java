@@ -7,7 +7,7 @@ public class Ejercicio3 {
         int numero, numeros[] = new int[10], suma=0, min, max;
         
         for (int i = 0; i < 10; i++) {
-            System.out.print("introduce un número: ");
+            System.out.print("Introduce un número: ");
             numero = entrada.nextInt();
             numeros[i] = numero;
             suma = numeros[i] + suma;          

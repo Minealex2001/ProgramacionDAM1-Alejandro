@@ -6,14 +6,14 @@ public class Ejercicio1 {
         int numeros[] = new int[10];
         
         for (int i = 0; i < 10; i++) {
-            System.out.print("introduce un número: ");
+            System.out.print("Introduce un número: ");
             numero = entrada.nextInt();
             numeros[i] = numero;          
         }
         
         System.out.println("Los números almacenados son: ");
         for (int i = 0; i < 10; i++) {
-            System.out.println(numeros[i]);
+            System.out.print(numeros[i] + " ");
         }
         entrada.close();
     }
