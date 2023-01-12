@@ -12,7 +12,7 @@ public class EjercicioObligatorio {
         /* Aqui utilizo un system.arraycopy para copiar el array que me dara como resultado el metodo que llamo
          * dentro de la misma linea "nomalu(entrada)" y lo almaceno en el array previamente declarado e instanciado "nombre".
          */
-        System.arraycopy(nomalu(entrada), 0, nombre, 0, 8);
+        System.arraycopy(nomAlu(entrada), 0, nombre, 0, 8);
         //Aqui declaro una variable que me servira para saber el numero de preguntas y le doy el valor que da como resultado "numPregun(entrada)".
         int numpreguntas = numPregun(entrada);
         char respuestas[][] = new char[8][numpreguntas];
@@ -21,19 +21,19 @@ public class EjercicioObligatorio {
          * dentro de la misma linea "notas(entrada, numpreguntas, nombre)" y lo almaceno en el array 
          * previamente declarado e instanciado "respuestas".
          */
-        System.arraycopy(respuestaalumno(entrada, numpreguntas, nombre), 0, respuestas, 0, numpreguntas);
+        System.arraycopy(respuestaAlumno(entrada, numpreguntas, nombre), 0, respuestas, 0, numpreguntas);
 
-        char respuestascorrectas[] = new char[numpreguntas];
-        System.arraycopy(respuestacorrecta(entrada, numpreguntas), 0, respuestascorrectas, 0, numpreguntas);
+        char respuestascorrecta[] = new char[numpreguntas];
+        System.arraycopy(respuestaCorrecta(entrada, numpreguntas), 0, respuestascorrecta, 0, numpreguntas);
 
 
-        menu(numpreguntas, nombre, respuestascorrectas, respuestas, entrada, numpreguntas);
+        menu(nombre, respuestascorrecta, respuestas, entrada, numpreguntas);
         entrada.close();
     }
 
     //Metodo para pedir y almacenar los nombres de los alumnos.
     //String[] declaro que el resultado del metodo es un Array de String.
-    public static String[] nomalu(Scanner entrada) {
+    public static String[] nomAlu(Scanner entrada) {
 
             //Inicializo el array que almacenara los nombres dentro del metodo.
             String alumno[] = new String[8];
@@ -78,7 +78,7 @@ public class EjercicioObligatorio {
      * Importo int numpreguntas para utilizar el numero de preguntas y creear el array bidimensional igual al de main
      * Importo String nombre[] para poder mostrar el nombre de los alumnos y asi sea más entendible para el usuario
      */
-    public static char[][] respuestaalumno(Scanner entrada, int numpreguntas, String nombre[]) {
+    public static char[][] respuestaAlumno(Scanner entrada, int numpreguntas, String nombre[]) {
 
         //Inicializo el array bidimensional que almacenara las respuestas y a que alumno refieren dentro del metodo.
         char respuestas[][] = new char[8][numpreguntas];
@@ -113,7 +113,7 @@ public class EjercicioObligatorio {
         return respuestas;
     }
 
-    public static char[] respuestacorrecta(Scanner entrada, int numpreguntas) {
+    public static char[] respuestaCorrecta(Scanner entrada, int numpreguntas) {
         char respuestas[] = new char[numpreguntas];
 
         for(int i=0; i < numpreguntas;i++){
@@ -138,7 +138,7 @@ public class EjercicioObligatorio {
         return respuestas;
     }
 
-    public static void menu( String nombre[], char respuestascorrectas[], char respuestaalumno[][], Scanner entrada, int numpreguntas ) {
+    public static void menu( String nombre[], char respuestascorrecta[], char respuestaalumno[][], Scanner entrada, int numpreguntas ) {
             //Muestro el menu.
             System.out.println("Opción 1 Notas: Muestra la nota obtenida de cada estudiante. Esta nota corresponde al número de aciertos que tuvo el estudiante.");
             System.out.println("Opción 2 Media: Muestra la media de aciertos de los 8 alumnos.");
@@ -148,11 +148,11 @@ public class EjercicioObligatorio {
             String res = entrada.nextLine();
             switch(res){
                 case "1":
-                    notastotales(nombre, respuestascorrectas, respuestaalumno, numpreguntas);
+                    notasTotales(nombre, respuestascorrecta, respuestaalumno, numpreguntas);
             }
     }
 
-    public static void notastotales(String nombre[], char respuestascorrectas[], char respuestaalumno[][], int numpreguntas) {
+    public static void notasTotales(String nombre[], char respuestascorrecta[], char respuestaalumno[][], int numpreguntas) {
 
         int nota[] = new int[8];
 
@@ -160,24 +160,26 @@ public class EjercicioObligatorio {
 
         for(int i = 0; i < 8; i++){
             for(int j = 0; j < numpreguntas ; j++){
-                if(respuestaalumno[i][j] == respuestascorrectas[i]){
+                if(respuestaalumno[i][j] == respuestascorrecta[i]){
                     nota[i] = nota[i] + 1;
                 }
             }
         System.out.println("La nota del alumno " + nombre[i] + " es: " + nota[i]);
         }
     }
-    public static void media(char respuestascorrectas[], char respuestaalumno[][], int numpreguntas) {
+
+
+    public static void media(char respuestascorrecta[], char respuestaalumno[][], int numpreguntas) {
         int nota = 0;
         for(int i = 0; i < 8; i++){
             for(int j = 0; j < numpreguntas ; j++){
-                if(respuestaalumno[i][j] == respuestascorrectas[i]){
+                if(respuestaalumno[i][j] == respuestascorrecta[i]){
                     nota = nota + 1;
                 }
             }
         }
         System.out.println("La nota media de la clase es: " + (nota/8));
-        
-        menu(null, respuestascorrectas, respuestaalumno, null, numpreguntas);
+
+        menu(null, respuestascorrecta, respuestaalumno, null, numpreguntas);
     }
 }
