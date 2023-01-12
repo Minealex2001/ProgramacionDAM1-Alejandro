@@ -87,12 +87,13 @@ public class EjercicioObligatorio {
         //Hago un bucle para ir cambiando el alumno del cual se quieren almacenar las respuestas.
         for(int i=0; i < 8; i++){
 
-            System.out.print("Introduce las respuestas para el alumno "+ nombre[i]);
+            System.out.println("Introduce las respuestas para el alumno "+ nombre[i]);
 
             //Hago un bucle para ir cambiando las preguntas del cual se quieren almacenar las respuestas.
             for(int j=0;j<numpreguntas;j++){
 
-                System.out.print("Introduce la respuesta para la pregunta " + j);
+                entrada.nextLine();
+                System.out.print("Introduce la respuesta para la pregunta " + j + ": ");
                 String resultado = entrada.nextLine();
 
 //while(resultado.equalsIgnoreCase("A")||resultado.equalsIgnoreCase("B")||resultado.equalsIgnoreCase("C")||resultado.equalsIgnoreCase("D")||resultado.equalsIgnoreCase("E")){
@@ -102,7 +103,7 @@ public class EjercicioObligatorio {
                 */
                 while(!resultado.matches("[a-e]")){
                     System.err.println("La respuesta tiene que estar entre la A y la E");
-                    System.out.print("Introduce la respuesta para la pregunta " + j);
+                    System.out.print("Introduce la respuesta para la pregunta " + j + ": ");
                     resultado = entrada.nextLine();
                 }
                 respuestas[i][j] = resultado.charAt(0);
