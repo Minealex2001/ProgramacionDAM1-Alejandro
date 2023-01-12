@@ -20,7 +20,7 @@ public class EjercicioObligatorio {
          * dentro de la misma linea "notas(entrada, numpreguntas, nombre)" y lo almaceno en el array 
          * previamente declarado e instanciado "respuestas".
          */
-        System.arraycopy(notas(entrada, numpreguntas, nombre), 0, respuestas, 0, numpreguntas);
+        System.arraycopy(respuestaalumno(entrada, numpreguntas, nombre), 0, respuestas, 0, numpreguntas);
 
         
         //Muestro el menu
@@ -32,39 +32,76 @@ public class EjercicioObligatorio {
         entrada.close();
     }
 
+    //Metodo para pedir y almacenar los nombres de los alumnos.
+    //String[] declaro que el resultado del metodo es un Array de String.
     public static String[] nomalu(Scanner entrada) {
+
+            //Inicializo el array que almacenara los nombres dentro del metodo.
             String alumno[] = new String[8];
+
+            //Realizo el bucle que me permitira dar vueltas por el array y almacenar los nombres.
             for(int i=0; i<alumno.length;i++){
                 System.out.print("Introduce el nombre del alumno:");
                 alumno[i]=entrada.nextLine();
             }
+
+            //Devuelve como resultado el array con los nombres.
             return alumno;
     }
 
+    //Metodo para pedir y almacenar el numero de preguntas que tendra el examen.
     public static int numPregun(Scanner entrada) {
+
+        //Declaro la variable que almacenara dentro del metodo el numero de preguntas.
+        //Lo inicializo con 0 para que siempre entre la primera vez, se podria hacer con un do-while.
         int numero = 0;
+
+        /*Como metodo de control, realizo un while que estara siempre dando vueltas mientras el valor de numero
+         * sea menor o igual a 0, ya que no puede haber un numero de preguntas negativas o nulas.
+         */
         while(numero<=0){
-        System.out.print("¿Cuantas preguntas tiene el examen?");
-        numero = entrada.nextInt();
+            System.out.print("¿Cuantas preguntas tiene el examen?");
+            numero = entrada.nextInt();
+
+            //Este if solo es para mostrar un mensaje de error cuando el numero no cumpla con lo requerido.
+            if(numero<=0){
+                System.err.println("El numero de preguntas no puede ser menor o igual a 0.");
+            }
         }
+        
+        //Devuelve como resultado el numero de preguntas despues de pasar por el control de datos.
         return numero;
     }
 
-    public static char[][] notas(Scanner entrada, int numero, String nombre[]) {
+    /*Metodo para pedir y almacenar las respuestas de los alumnos.
+     * char[] declaro que el resultado del metodo es un Array de char.
+     * Importo Scanner entrada para poder utilizar el escaner dentro del metodo
+     * Importo int numpreguntas para utilizar el numero de preguntas y creear el array bidimensional igual al de main
+     * Importo String nombre[] para poder mostrar el nombre de los alumnos y asi sea más entendible para el usuario
+     */
+    public static char[][] respuestaalumno(Scanner entrada, int numpreguntas, String nombre[]) {
 
-        char respuestas[][] = new char[8][numero];
+        //Inicializo el array bidimensional que almacenara las respuestas y a que alumno refieren dentro del metodo.
+        char respuestas[][] = new char[8][numpreguntas];
 
+        //Hago un bucle para ir cambiando el alumno del cual se quieren almacenar las respuestas.
         for(int i=0; i < 8; i++){
 
             System.out.print("Introduce las respuestas para el alumno "+ nombre[i]);
 
-            for(int j=0;j<numero;j++){
+            //Hago un bucle para ir cambiando las preguntas del cual se quieren almacenar las respuestas.
+            for(int j=0;j<numpreguntas;j++){
 
                 System.out.print("Introduce la respuesta para la pregunta " + j);
                 String resultado = entrada.nextLine();
 
-                //while(resultado.equalsIgnoreCase("A")||resultado.equalsIgnoreCase("B")||resultado.equalsIgnoreCase("C")||resultado.equalsIgnoreCase("D")||resultado.equalsIgnoreCase("E")){
+//while(resultado.equalsIgnoreCase("A")||resultado.equalsIgnoreCase("B")||resultado.equalsIgnoreCase("C")||resultado.equalsIgnoreCase("D")||resultado.equalsIgnoreCase("E")){
+
+                /*Como metodo de control, realizo un while que estara siempre dando vueltas mientras el valor de resultado
+                * sea distinto de A, B, C, D o E, ya que no hay más respuestas aceptables.
+                */
                 while(!resultado.matches("[a-e]")){
+                    System.err.println("La respuesta tiene que estar entre la A y la E");
                     System.out.print("Introduce la respuesta para la pregunta " + j);
                     resultado = entrada.nextLine();
                 }
