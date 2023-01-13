@@ -21,7 +21,7 @@ public class EjercicioObligatorio {
          * dentro de la misma linea "notas(entrada, numpreguntas, nombre)" y lo almaceno en el array 
          * previamente declarado e instanciado "respuestas".
          */
-        System.arraycopy(respuestaAlumno(entrada, numpreguntas, nombre), 0, respuestas, 0, numpreguntas);
+        respuestas = respuestaAlumno(entrada, numpreguntas, nombre);
 
         char respuestascorrecta[] = new char[numpreguntas];
         System.arraycopy(respuestaCorrecta(entrada, numpreguntas), 0, respuestascorrecta, 0, numpreguntas);
