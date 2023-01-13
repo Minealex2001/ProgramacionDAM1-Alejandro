@@ -138,7 +138,7 @@ public class EjercicioObligatorio {
         return respuestas;
     }
 
-    public static void menu( String nombre[], char respuestascorrecta[], char respuestaalumno[][], Scanner entrada, int numpreguntas ) {
+    public static void menu( String nombre[], char respuestascorrecta[], char respuestaalumno[][], Scanner entrada, int numpreguntas) {
             //Muestro el menu.
             System.out.println("Opción 1 Notas: Muestra la nota obtenida de cada estudiante. Esta nota corresponde al número de aciertos que tuvo el estudiante.");
             System.out.println("Opción 2 Media: Muestra la media de aciertos de los 8 alumnos.");
@@ -149,6 +149,14 @@ public class EjercicioObligatorio {
             switch(res){
                 case "1":
                     notasTotales(nombre, respuestascorrecta, respuestaalumno, numpreguntas);
+                    break;
+                
+                case "2":
+                    media(respuestascorrecta, respuestaalumno, numpreguntas);
+                    break;
+                
+                case "3":
+                notaAlumno(respuestascorrecta, respuestaalumno, numpreguntas, entrada);
             }
     }
 
@@ -181,5 +189,11 @@ public class EjercicioObligatorio {
         System.out.println("La nota media de la clase es: " + (nota/8));
 
         menu(null, respuestascorrecta, respuestaalumno, null, numpreguntas);
+    }
+
+    public static void notaAlumno(char respuestascorrecta[], char respuestaalumno[][], int numpreguntas, Scanner entrada) {
+        int nota = 0;
+        System.out.print("¿De que alumno quieres saber la nota?");
+        String alumno = new entrada.nextLine();
     }
 }
