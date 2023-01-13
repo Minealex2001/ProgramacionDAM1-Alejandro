@@ -7,7 +7,7 @@ public class Ejercicio10 {
         System.out.print("¿De cuantas personas quieres almacenar la altura?");
         int personas = entrada.nextInt();
         int altura[] = new int[personas];
-        int media=0;
+        int suma=0;
         
         for(int i=0; i<altura.length; i++){
             System.out.print("Añade una altura: ");
@@ -17,9 +17,9 @@ public class Ejercicio10 {
         System.out.println("La altura más pequeña es: " + altura[0]);
 		System.out.println("La altura más grande es:  " + altura[altura.length - 1]);
         for(int i=0; i<altura.length; i++){
-            media = media + altura[i];
+            suma = suma + altura[i];
         }
-        media = media/altura.length;
+        int media = suma/altura.length;
         System.out.println("La media de altura es: "+ media);
 
 

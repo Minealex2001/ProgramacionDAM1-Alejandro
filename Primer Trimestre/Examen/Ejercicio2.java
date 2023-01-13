@@ -52,11 +52,11 @@ public class Ejercicio2 {
                         }
                         break;
                         case "Viernes":
-                        hora = hora - 8;
-                        if(hora <= 0){
-                            hora = 23;
-                            diasemana = "Lunes";
-                        }
+                            hora = hora - 8;
+                            if(hora <= 0){
+                                hora = 23;
+                                diasemana = "Lunes";
+                            }
                         break;
                         case "Sabado":
                         hora = hora - 8;
