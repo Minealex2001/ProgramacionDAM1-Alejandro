@@ -156,7 +156,7 @@ public class EjercicioObligatorio {
                     break;
                 
                 case "3":
-                notaAlumno(respuestascorrecta, respuestaalumno, numpreguntas, entrada);
+
             }
     }
 
@@ -191,9 +191,15 @@ public class EjercicioObligatorio {
         menu(null, respuestascorrecta, respuestaalumno, null, numpreguntas);
     }
 
-    public static void notaAlumno(char respuestascorrecta[], char respuestaalumno[][], int numpreguntas, Scanner entrada) {
+    public static void notaAlumno(char respuestascorrecta[], char respuestaalumno[][], int numpreguntas, Scanner entrada, String nombre[]) {
         int nota = 0;
         System.out.print("¿De que alumno quieres saber la nota?");
-        String alumno = new entrada.nextLine();
+        String alumno = entrada.nextLine();
+
+        for(int i=0; i < nombre.length ; i++ ){
+            if(alumno.equals(nombre[i])){
+                
+            }
+        }
     }
 }
