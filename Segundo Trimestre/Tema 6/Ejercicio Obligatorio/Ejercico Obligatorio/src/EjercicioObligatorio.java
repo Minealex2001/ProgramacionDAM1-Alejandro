@@ -169,6 +169,10 @@ public class EjercicioObligatorio {
 				case 3:
                     notaAlumno(respuestascorrecta, respuestaalumno, numpreguntas, entrada, nombre);
                     break;
+
+				case 4:
+					preguntaMasAcertada(respuestascorrecta, respuestaalumno, numpreguntas);
+					break;
 			}
 
         }while(res != -1);
@@ -257,5 +261,19 @@ public class EjercicioObligatorio {
 
         //Muestro la nota del alumno en concreto.
 		System.out.println("La nota del alumno "+ alumno + " es " + nota);
+	}
+
+    //Este metodo solo se utilizara para mostrar cual es la pregunta más acertada.
+    public static void preguntaMasAcertada(char respuestacorrecta[], char respuestaalumno[][], int numpreguntas) {
+    	int correctasIndice = 0;
+    	for (int i = 0; i < 8; i++) {
+			for(int j = 0; j<numpreguntas; j++){
+				if (respuestaalumno[i][j] == respuestacorrecta[j]) {
+					correctasIndice = j;
+				}
+        	}
+    	}
+		System.out.println("La respuesta más acertada es la " + correctasIndice);
+
 	}
 }
