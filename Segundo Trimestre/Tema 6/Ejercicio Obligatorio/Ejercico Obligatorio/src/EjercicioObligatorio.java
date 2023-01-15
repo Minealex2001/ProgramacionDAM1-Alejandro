@@ -1,6 +1,10 @@
 import java.util.Arrays;
 import java.util.Scanner;
-
+/*
+ * Ejercicio obligatorio
+ * Made by Alejandro Sánchez Pinto
+ * Github: https://github.com/Minealex2001
+ */
 public class EjercicioObligatorio {
 	public static void main(String[] args) {
 		//Inicializo el escaner.
@@ -155,7 +159,7 @@ public class EjercicioObligatorio {
             System.out.println("Elije la opcion que quieres simplemente insertando el numero que quieres. Elige -1 para salir del programa");
 			
 			res = entrada.nextInt();
-
+			entrada.nextLine();
 			//Dependiendo de la respuesta que de el usuario se llamara a un metodo diferente.
 			switch(res){
 				case 1:
@@ -194,7 +198,7 @@ public class EjercicioObligatorio {
 			for(int j = 0; j < numpreguntas ; j++){
 
 				//Compruebo si la respuesta del alumno es igual a la respuesta correcta de la pregunta.
-				if(respuestaalumno[i][j] == respuestascorrecta[i]){
+				if(respuestaalumno[i][j] == respuestascorrecta[j]){
 					nota[i] = nota[i] + 1;
 				}
 			}
@@ -208,7 +212,7 @@ public class EjercicioObligatorio {
 	public static void media(char respuestascorrecta[], char respuestaalumno[][], int numpreguntas) {
 
         //Inicializo una variable local para almacenar de forma temporal la nota de los alumnos para sacar la media.
-		int nota = 0;
+		float nota = 0;
 
         //Realizo un for para recorrer el array de respuesta por alumno.
 		for(int i = 0; i < 8; i++){
@@ -217,7 +221,7 @@ public class EjercicioObligatorio {
 			for(int j = 0; j < numpreguntas ; j++){
 
                 //Compruebo si la respuesta del alumno es igual a la respuesta correcta de la pregunta.
-				if(respuestaalumno[i][j] == respuestascorrecta[i]){
+				if(respuestaalumno[i][j] == respuestascorrecta[j]){
 					nota = nota + 1;
 				}
 			}
@@ -226,7 +230,6 @@ public class EjercicioObligatorio {
         //Muestro la nota media de la clase.
 		System.out.println("La nota media de la clase es: " + (nota/8));
 
-		menu(null, respuestascorrecta, respuestaalumno, null, numpreguntas);
 	}
 
 	//Este metodo se utiliza solo para mostrar la nota de un alumno en particular.
@@ -265,15 +268,33 @@ public class EjercicioObligatorio {
 
     //Este metodo solo se utilizara para mostrar cual es la pregunta más acertada.
     public static void preguntaMasAcertada(char respuestacorrecta[], char respuestaalumno[][], int numpreguntas) {
-    	int correctasIndice = 0;
-    	for (int i = 0; i < 8; i++) {
-			for(int j = 0; j<numpreguntas; j++){
-				if (respuestaalumno[i][j] == respuestacorrecta[j]) {
-					correctasIndice = j;
-				}
-        	}
-    	}
-		System.out.println("La respuesta más acertada es la " + correctasIndice);
 
+		 	//Crea un arreglo para contar la cantidad de veces que cada respuesta fue seleccionada.
+			int[] contarPregunta = new int[respuestacorrecta.length];
+
+				//Recorre cada respuesta de los alumnos y compara con la respuesta correcta.
+				for (int i = 0; i < 8; i++) {
+					for (int j = 0; j < numpreguntas; j++){
+
+					//Si la respuesta del alumno es igual a la respuesta correcta, incrementa el contador.
+					if (respuestaalumno[i][j] == (respuestacorrecta[j])) {
+						contarPregunta[j]++;
+					}
+				}
+			}
+
+			int masAcertada = 0;
+			int masAcertadaIndex = 0;
+
+			// Busca la respuesta con la mayor cantidad de selecciones
+			for (int g = 0; g < contarPregunta.length; g++) {
+				if (contarPregunta[g] > masAcertada) {
+					masAcertada = contarPregunta[g];
+					masAcertadaIndex = g;
+				}
+			}
+
+			//Devuelve la respuesta correspondiente de las respuestas correctas
+			System.out.println("La pregunta más acertada es la: "+ masAcertadaIndex);
 	}
 }
