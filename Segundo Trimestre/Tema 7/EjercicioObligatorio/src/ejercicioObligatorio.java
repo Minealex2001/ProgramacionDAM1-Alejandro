@@ -5,15 +5,20 @@ public class ejercicioObligatorio {
 
         //Declaramos el scanner
         Scanner entrada = new Scanner(System.in);
-        double precio = 0;
+        double precio=0.0, precioPot=0.0, incre=0.0, kwTotal=0.0;
+        String cont;
         do{
         //Declaramos la variable donde almacenaremos el numero de contrato.
         //El numero de contrato lo pedimos desde el metodo.
         String numeroContrato = numContrato(entrada);
         double potenciaContratada = potenciaContratada(entrada);
         double kwUtilizada = kwUtilizada(entrada);
-        precio = precio + precio(potenciaContratada, kwUtilizada);
-        }while
+        precioPot = precioPotencia(potenciaContratada, kwUtilizada);
+        incre = incremento(precio, kwUtilizada);
+        precio = precioPot + incre;
+        kwTotal = kwTotal + kwUtilizada;
+        cont = total(entrada, numeroContrato, potenciaContratada, kwUtilizada, kwTotal, precio, incre, precioPot);
+        }while(cont.equalsIgnoreCase("Continuar"));
     }
 
     //Metodo que devuelve un String con el numero de contrato.
@@ -50,7 +55,7 @@ public class ejercicioObligatorio {
         return numero;
     }
 
-    public static double precio(double potenciaContratada, double kwUtilizada) {
+    public static double precioPotencia(double potenciaContratada, double kwUtilizada) {
         double numero=0;
         switch(potenciaContratada){
             case 3.45:
@@ -76,17 +81,34 @@ public class ejercicioObligatorio {
             default:
             break;
         }
-
-        if(kwUtilizada>=0&&kwUtilizada<=150){
-            numero = numero + (kwUtilizada * 0.1684);
-        }else if(kwUtilizada>150&&kwUtilizada<=300){
-            numero =  numero + ((kwUtilizada * 0.1684)*1.05);
-        }else if(kwUtilizada>300&&kwUtilizada<=400){
-            numero =  numero + ((kwUtilizada * 0.1684)*1.08);
-        }else{
-            numero =  numero + ((kwUtilizada * 0.1684)*1.12);
-        }
-
         return numero;
+    }
+
+    public static double incremento(double precio,double kwUtilizada) {
+        double numero = 0;
+        if(kwUtilizada>=0&&kwUtilizada<=150){
+            numero = (kwUtilizada * 0.1684);
+        }else if(kwUtilizada>150&&kwUtilizada<=300){
+            numero = ((kwUtilizada * 0.1684)*1.05);
+        }else if(kwUtilizada>300&&kwUtilizada<=400){
+            numero = ((kwUtilizada * 0.1684)*1.08);
+        }else{
+            numero = ((kwUtilizada * 0.1684)*1.12);
+        }
+        return numero;
+    }
+
+    public static String total(Scanner entrada, String numeroContrato, double potenciaContratada, double kwUtilizada, double kwTotal, double precio, double incre, double precioPot) {
+        System.out.println("El numero de contrato es: " + numeroContrato);
+        System.out.println("La potencia contratada es: " + potenciaContratada);
+        System.out.println("Los kW utilizados son: " + kwUtilizada);
+        System.out.println("El precio base es de: " + precioPot + "más el incremento de por los kW utilizados: " + incre);
+        System.out.println("El total es: " + precio);
+        System.out.println("kW utilizados por los clientes: " + kwTotal);
+
+        System.out.println("¿Quieres continuar? Escribe Continuar si es asi, si no escribe Salir");
+        String cont = entrada.nextLine();
+
+        return cont;
     }
 }
