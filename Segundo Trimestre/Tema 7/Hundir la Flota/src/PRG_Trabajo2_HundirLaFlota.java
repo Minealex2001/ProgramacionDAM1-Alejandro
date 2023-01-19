@@ -100,7 +100,5 @@ public class PRG_Trabajo2_HundirLaFlota {
 
     // Muestra el texto al usuario, le pide por teclado un valor int y lo devuelve.
     // Se repite indefinidamente hasta que el valor introducido esté entre min y max
-    public static int pide_int_forzoso_entre_min_y_max(String texto, int min, int max) {
-
-}
+    public static int pide_int_forzoso_entre_min_y_max(String texto, int min, int max) {}
 }
