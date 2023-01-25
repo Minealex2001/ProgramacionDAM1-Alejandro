@@ -22,7 +22,6 @@ public class ejercicioObligatorio {
         //Declaramos la variable donde almacenaremos la potencia contratada.
         double potenciaCont = potenciaContratada(entrada);
 
-        
         //Declaramos la variable donde almacenaremos los kW utilizados.
         double kwUtilizada = kwUtilizada(entrada);
 
