@@ -2,10 +2,10 @@ package EjA.A3;
 
 
         class rectangulo {
-            private int x1;
-            private int y1;
-            private int x2;
-            private int y2;
+            int x1;
+            int y1;
+            int x2;
+            int y2;
         
             public rectangulo(int x1, int y1, int x2, int y2) {
                 this.x1 = x1;
