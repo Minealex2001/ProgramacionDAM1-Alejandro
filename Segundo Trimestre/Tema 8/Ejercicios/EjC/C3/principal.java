@@ -1,8 +1,6 @@
 package EjC.C3;
 
-class Persona {
-
-  public class Main {
+  public class principal {
 
     public static void main(String[] args) {
       rectangulo rectangulo1 = new rectangulo(0, 0, 5, 5);
@@ -49,4 +47,3 @@ class Persona {
       rectangulo2.setY2(4);
     }
   }
-}

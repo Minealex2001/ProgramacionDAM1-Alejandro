@@ -3,33 +3,45 @@ package EjD.D1;
 public class punto {
   int x;
   int y;
+  
   public punto(int x, int y) {
-    this.x=x;
-    this.y=y;
+  this.x = x;
+  this.y = y;
   }
-  /**
-   * @return the x
-   */
+  
+  public void imprime() {
+  System.out.println("(" + x + ", " + y + ")");
+  }
+  
+  public void setXY(int x, int y) {
+  this.x = x;
+  this.y = y;
+  }
+  
+  public void desplaza(int dx, int dy) {
+  this.x += dx;
+  this.y += dy;
+  }
+  
+  public int distancia(punto p) {
+  int dx = this.x - p.x;
+  int dy = this.y - p.y;
+  return (int)Math.sqrt(dx + dy);
+  }
+  
   public int getX() {
-    return x;
+  return x;
   }
-  /**
-   * @return the y
-   */
+  
   public int getY() {
-    return y;
+  return y;
   }
-  /**
-   * @param x the x to set
-   */
+  
   public void setX(int x) {
-    this.x = x;
+  this.x = x;
   }
-  /**
-   * @param y the y to set
-   */
+  
   public void setY(int y) {
-    this.y = y;
+  this.y = y;
   }
-
-}
+  }
