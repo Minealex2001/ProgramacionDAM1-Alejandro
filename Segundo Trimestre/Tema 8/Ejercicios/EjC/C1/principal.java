@@ -1,4 +1,4 @@
-package EjB.B1;
+package EjC.C1;
 
 public class principal {
 
@@ -31,5 +31,4 @@ public class principal {
       "Coordenadas Punto 3 modificadas: (" + punto3.x + "," + punto3.y + ")"
     );
   }
-
 }
