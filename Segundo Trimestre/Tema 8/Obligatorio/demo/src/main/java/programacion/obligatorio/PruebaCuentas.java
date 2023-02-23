@@ -14,25 +14,46 @@ public class PruebaCuentas {
     BufferedReader entrada = new BufferedReader(
       new InputStreamReader(System.in)
     );
-    int respuesta;
+    int respuesta, numeropersona = 0, persona, saldoDisponible;
+    String numeroCuenta;
+    Persona personas[] = new Persona[50];
     do {
-      System.out.print("¿Que quieres realizar?");
-      System.out.print("1. Añadir una persona");
-      System.out.print("2. Añadir una Cuenta y asociar una persona");
-      System.out.print("3. Mostrar datos de una persona");
-      System.out.print("4. Recibe la nomina mensual");
-      System.out.print("5. Recibe un pago");
-      System.out.print("6. Realizar una transferencia");
-      System.out.print("7. Mostrar las personas morosas");
+      System.out.println("¿Que quieres realizar?");
+      System.out.println("1. Añadir una persona");
+      System.out.println("2. Añadir una Cuenta y asociar una persona");
+      System.out.println("3. Mostrar datos de una persona");
+      System.out.println("4. Recibe la nomina mensual");
+      System.out.println("5. Recibe un pago");
+      System.out.println("6. Realizar una transferencia");
+      System.out.println("7. Mostrar las personas morosas");
 
       respuesta = Integer.parseInt(entrada.readLine());
 
       switch (respuesta) {
         case 1:
-        
+          System.out.println("¿Cual es el DNI?");
+          String DNI = entrada.readLine();
+          personas[numeropersona] = new Persona(DNI);
+          numeropersona++;
           break;
         case 2:
-          break;
+          if(numeropersona != 0){
+          System.out.println("¿A que persona quieres asociar la cuenta?");
+          persona = Integer.parseInt(entrada.readLine());
+          while(persona<numeropersona){
+            System.err.println("La persona indicada no existe");
+            System.out.println("¿A que persona quieres asociar la cuenta?");
+            persona = Integer.parseInt(entrada.readLine());
+          }
+          System.out.println("¿Cual es el numero de cuenta?");
+          numeroCuenta = entrada.readLine();
+          System.out.println("¿Cual es el saldo disponible?");
+          saldoDisponible = Integer.parseInt(entrada.readLine());
+          personas[persona].agregarCuenta(numeroCuenta, saldoDisponible);
+        }else{
+          System.err.println("Primero tienes que añadir una persona");
+        }
+        break;
         case 3:
           break;
         case 4:

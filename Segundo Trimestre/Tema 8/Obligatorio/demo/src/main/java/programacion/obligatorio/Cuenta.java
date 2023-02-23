@@ -2,14 +2,14 @@ package programacion.obligatorio;
 
 public class Cuenta {
 
-    private int numeroCuenta;
+    private String numeroCuenta;
     private double saldoDisponible;
-    public Cuenta(int numeroCuenta, double saldoDisponible) {
+    public Cuenta(String numeroCuenta, double saldoDisponible) {
         this.numeroCuenta = numeroCuenta;
         this.saldoDisponible = saldoDisponible;
     }
     
-    public int getNumeroCuenta() {
+    public String getNumeroCuenta() {
         return numeroCuenta;
     }
     

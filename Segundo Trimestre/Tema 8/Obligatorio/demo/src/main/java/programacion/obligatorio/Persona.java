@@ -14,13 +14,14 @@ public class Persona  {
         return DNI;
     }
     
-    public boolean agregarCuenta(Cuenta cuenta) {
+    public boolean agregarCuenta(String numeroCuenta, double saldoDisponible) {
         boolean fin = true;
         if (contadorCuentas < 3) {
-            cuentas_bancarias[contadorCuentas] = cuenta;
+            cuentas_bancarias[contadorCuentas] = new Cuenta(numeroCuenta, saldoDisponible);
             contadorCuentas++;
             fin = true;
         } else {
+            System.err.println("Has llegado al limite de cuentas.");
             fin = false;
         }
         return fin;
