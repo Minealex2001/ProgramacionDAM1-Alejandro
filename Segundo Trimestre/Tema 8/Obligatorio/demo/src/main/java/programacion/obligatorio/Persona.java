@@ -21,22 +21,61 @@ public class Persona  {
             contadorCuentas++;
             fin = true;
         } else {
-            System.err.println("Has llegado al limite de cuentas.");
             fin = false;
         }
         return fin;
     }
-    
-    public boolean esMorosa() {
-        boolean fin = true;
-        for (int i = 0; i < contadorCuentas; i++) {
-            if (cuentas_bancarias[i].getSaldoDisponible() < 0) {
-                fin = true;
+
+    public void mostrarPersona(){
+        System.out.println("El DNI del usuario es: " + getDNI());
+        System.out.println("Tiene " + contadorCuentas + " asociadas a su cuenta.");
+        for(int i=0; i < contadorCuentas; i++){
+            System.out.println("La cuenta con el numero " + cuentas_bancarias[i].getNumeroCuenta() + " tiene " + cuentas_bancarias[i].getSaldoDisponible() + " de saldo disponible."); 
+        }
+    }
+
+    public void recibirNomina(double dinero, String numeroCuenta){
+        for(int i=0; i < contadorCuentas; i++){
+        if(numeroCuenta.equals(cuentas_bancarias[i].getNumeroCuenta())){
+            cuentas_bancarias[i].setSaldoDisponible(cuentas_bancarias[i].getSaldoDisponible() + dinero);
+        }
+        }
+    }
+    public void realizarPago(String numeroCuenta, double dinero){
+        for(int i=0; i< contadorCuentas; i++){
+            if(numeroCuenta.equals(cuentas_bancarias[i].getNumeroCuenta())){
+                        if(cuentas_bancarias[i].getSaldoDisponible()<dinero){
+                            System.err.println("[ERROR] La cuenta no dispone de los fondos suficientes");
+                        }else{
+                            cuentas_bancarias[i].pagar(dinero);
+                        }
+                    }
+                }
+            }
+            
+    public void transferenciaEntreCuentas(String numeroCuenta1, String numeroCuenta2, double dinero){
+        for(int i=0; i< contadorCuentas; i++){
+            if(numeroCuenta1.equals(cuentas_bancarias[i].getNumeroCuenta())){
+                for(int j=0; j < contadorCuentas; j++){
+                    if(numeroCuenta2.equals(cuentas_bancarias[j].getNumeroCuenta())){
+                        if(cuentas_bancarias[i].getSaldoDisponible()<dinero){
+                            System.err.println("[ERROR] La cuenta no dispone de los fondos suficientes");
+                        }else{
+                            cuentas_bancarias[i].pagar(dinero);
+                            cuentas_bancarias[j].abonar(dinero);
+                        }
+                    }
+                }
             }
         }
-        fin = false;
-        return fin;
     }
+    public void esMorosa() {
+        for (int i = 0; i < contadorCuentas; i++) {
+            if (cuentas_bancarias[i].getSaldoDisponible() < 0) {
+                System.out.println("El usuario " + getDNI() + " tiene saldo negativo en cuenta.");
+            }
+        }
+        }
     
     
 }

@@ -16,20 +16,19 @@ public class Cuenta {
     public double getSaldoDisponible() {
         return saldoDisponible;
     }
-    
+
+        public void setSaldoDisponible(double saldoDisponible) {
+        this.saldoDisponible = saldoDisponible;
+    }
+
     public void abonar(double cantidad) {
         saldoDisponible += cantidad;
     }
     
-    public boolean pagar(double cantidad) {
-        boolean fin = true;
+    public void pagar(double cantidad) {
         if (saldoDisponible >= cantidad) {
             saldoDisponible -= cantidad;
-            fin = true;
-        } else {
-            fin = false;
         }
-        return fin;
-    }
+      }
 }
     
