@@ -273,10 +273,16 @@ public class PruebaCuentas {
 
         //Caso 7 = Mostrar morosos.
         case 7:
-
+        if (numeroPersona != 0) {
         //Recorremos el array de personas y llamamos al metodo esMorosa.
-        for(int i=0; i<numeroPersona; i++){
-          personas[i].esMorosa();
+          for(int i=0; i<numeroPersona; i++){
+            personas[i].esMorosa();
+          }
+        } else {
+          //Avisa si no hay una persona en el sistema.
+          System.err.println(
+            "[ERROR] Primero tienes que añadir una persona"
+          );
         }
           break;
 
