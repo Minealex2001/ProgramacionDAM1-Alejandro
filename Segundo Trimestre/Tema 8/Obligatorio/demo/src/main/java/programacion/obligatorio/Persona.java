@@ -1,5 +1,9 @@
 package programacion.obligatorio;
-
+/*
+ * Ejercicio obligatorio
+ * Made by Alejandro Sánchez Pinto
+ * Github: https://github.com/Minealex2001
+ */
 public class Persona  {
 
     /*

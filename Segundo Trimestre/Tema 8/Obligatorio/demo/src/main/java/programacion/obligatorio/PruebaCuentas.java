@@ -3,7 +3,11 @@ package programacion.obligatorio;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
+/*
+ * Ejercicio obligatorio
+ * Made by Alejandro Sánchez Pinto
+ * Github: https://github.com/Minealex2001
+ */
 
 /**
  * Integer.parseInt(entrada.readLine());
