@@ -10,5 +10,9 @@ public class Producto{
         this.cantidad = cantidad;
         this.nombre = nombre;
     }
+
+    public String toString() {
+        return "Nombre: " + nombre + ", Precio: " + cantidad;
+    }
     
 }
