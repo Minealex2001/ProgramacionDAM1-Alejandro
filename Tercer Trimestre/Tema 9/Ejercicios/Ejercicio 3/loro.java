@@ -47,3 +47,13 @@ public class loro extends aves {
     public boolean isHabla() {
         return habla;
     }
+
+    @Override
+    public void volar() {
+        if(super.isVuela()){
+            System.out.println("El loro si que vuela.");
+        }else {
+            System.out.println("El loro no vuela.");
+        }
+    }
+}

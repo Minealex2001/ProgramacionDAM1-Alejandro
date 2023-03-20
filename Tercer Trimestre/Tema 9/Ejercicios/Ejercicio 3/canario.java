@@ -51,4 +51,15 @@ public class canario extends aves {
         System.out.println("Color: " + getColor());
         System.out.println("Canta: " + isCanta());
     }
+
+
+
+    @Override
+    public void volar() {
+        if(super.isVuela()){
+            System.out.println("El canario si que vuela.");
+        }else {
+            System.out.println("El canario no vuela.");
+        }
+    }
 }
