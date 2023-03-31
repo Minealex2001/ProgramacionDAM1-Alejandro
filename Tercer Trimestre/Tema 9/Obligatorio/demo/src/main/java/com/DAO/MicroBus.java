@@ -5,18 +5,11 @@ public class MicroBus extends Vehiculo {
 
     private final static int PRECIO_PLAZA=2;
     private int plazas;
-    private int metros;
 
     //constructores
-    public MicroBus(String matricula, int plazas, int metros) {
+    public MicroBus(String matricula, int plazas) {
         super(matricula);
         this.plazas = plazas;
-        this.metros = metros;
-    }
-
-
-    public MicroBus(String matricula) {
-        super(matricula);
     }
 
     public static int getPrecioPlaza() {
@@ -28,14 +21,6 @@ public class MicroBus extends Vehiculo {
     }
     public void setPlazas(int plazas) {
         this.plazas = plazas;
-    }
- 
-    public int getMetros() {
-        return metros;
-    }
-
-    public void setMetros(int metros) {
-        this.metros = metros;
     }
     //métodos
     @Override
@@ -51,8 +36,7 @@ public class MicroBus extends Vehiculo {
         String infomicroB;
 
         infomicroB="MICROBUS\n"+"===========================\n"+
-        "\nPlazas: "+getPlazas()+
-        "\nMetros: "+getMetros();
+        "\nPlazas: "+getPlazas();
         return infomicroB;
     }
 }
