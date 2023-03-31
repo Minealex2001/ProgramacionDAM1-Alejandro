@@ -1,36 +1,35 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.DAO;
+
+/*
+ * Ejercicio obligatorio
+ * Made by Alejandro Sánchez Pinto
+ * Github: https://github.com/Minealex2001
+ */
 
 public abstract class VehiculoCarga extends Vehiculo {
     
-    //Atributos miembro
-    private static final float TASA_PMA = 20;
+    //Instanciamos las variables necesarias.
+    private static final float tasaPMA = 20;
     private float pma;
    
 
-    //Constructores
-    public VehiculoCarga(float pma, String matricula) {
-        super(matricula);
+    //Constructor del objeto.
+    public VehiculoCarga(float pma, String matricula, String tipo) {
+        super(matricula, tipo);
         this.pma = pma;
     }
 
 
-    //set y get
+    //Getters de la objeto.
     public float getPma() {
         return pma;
     }
-    public void setPma(float pma) {
-        this.pma = pma;
-    }
-    public static float getTASA_PMA() {
-        return TASA_PMA;
+
+    public static float gettasaPMA() {
+        return tasaPMA;
     }
 
-    //Métodos
+    //Método abstracto.
     @Override
     public abstract float precioAlquilerVehiculo(int dias);
      

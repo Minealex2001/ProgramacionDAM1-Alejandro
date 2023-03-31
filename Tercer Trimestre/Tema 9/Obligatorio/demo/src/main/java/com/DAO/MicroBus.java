@@ -1,42 +1,41 @@
 package com.DAO;
 
+/*
+ * Ejercicio obligatorio
+ * Made by Alejandro Sánchez Pinto
+ * Github: https://github.com/Minealex2001
+ */
 
 public class MicroBus extends Vehiculo {
 
-    private final static int PRECIO_PLAZA=2;
+    //Instanciamos las variables necesarias.
+    private final static int precioPlaza=2;
     private int plazas;
 
-    //constructores
-    public MicroBus(String matricula, int plazas) {
-        super(matricula);
+    //Constructor del objeto
+    public MicroBus(String matricula, int plazas, String tipo) {
+        super(matricula, tipo);
         this.plazas = plazas;
     }
 
+    //Getters necesarios para la clase.
     public static int getPrecioPlaza() {
-        return PRECIO_PLAZA;
+        return precioPlaza;
     }
  
     public int getPlazas() {
         return plazas;
     }
-    public void setPlazas(int plazas) {
-        this.plazas = plazas;
-    }
-    //métodos
+
+
+
+    //Metodo abstracto con el que sacamos el precio el alquiler.
     @Override
     public float precioAlquilerVehiculo (int dias){
         float precio;
-        precio = (getPRECIOBASE()* (float)dias);
+        precio = (getPrecioBase()* (float)dias);
         precio = precio + ((float)getPlazas() * 1.5f * (float)dias);
-        precio = precio + ((float)getPlazas() * PRECIO_PLAZA);
+        precio = precio + ((float)getPlazas() * precioPlaza);
         return precio;
-    }
-    @Override
-    public String info(){
-        String infomicroB;
-
-        infomicroB="MICROBUS\n"+"===========================\n"+
-        "\nPlazas: "+getPlazas();
-        return infomicroB;
     }
 }

@@ -1,41 +1,38 @@
 package com.DAO;
 
+/*
+ * Ejercicio obligatorio
+ * Made by Alejandro Sánchez Pinto
+ * Github: https://github.com/Minealex2001
+ */
+
 public abstract class Vehiculo {
     
-    private static float PRECIOBASE=50; 
-    // atributos miembro
+    //Variables necesarias para el objeto.
+    private static float precioBase=50; 
     private String matricula;
+    private String tipo;
 
-     //constructores
-    public Vehiculo(String matricula) {
+    //Constructor del objeto.
+    public Vehiculo(String matricula, String tipo) {
         this.matricula = matricula;
+        this.tipo = tipo;
     }
 
-   //métodos abstractos
-    public abstract float precioAlquilerVehiculo(int dias);
-    public abstract String info();
-
-    /**
-     * @return the pRECIOBASE
-     */
-    public static float getPRECIOBASE() {
-        return PRECIOBASE;
+    //Getters del objeto
+    public static float getPrecioBase() {
+        return precioBase;
     }
 
-    /**
-     * @param pRECIOBASE the pRECIOBASE to set
-     */
-    public static void setPRECIOBASE(float pRECIOBASE) {
-        PRECIOBASE = pRECIOBASE;
+    public String getTipo() {
+        return tipo;
     }
 
-    /**
-     * @return the matricula
-     */
     public String getMatricula() {
         return matricula;
     }
 
-
+   //Metodo abstacto.
+    public abstract float precioAlquilerVehiculo(int dias);
 
 }
